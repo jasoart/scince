@@ -1210,3 +1210,79 @@ main {
     display: none;
   }
 }
+
+.curriculum-update {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 28px 30px;
+  margin: 0 0 34px;
+  border: 1px solid #d9e4da;
+  border-radius: 16px;
+  background: linear-gradient(110deg, #eef4ed, #fcfcf7);
+}
+.curriculum-update h2 {
+  font-size: 23px;
+  letter-spacing: -0.6px;
+  margin: 8px 0 10px;
+  color: #183f34;
+}
+.curriculum-update p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #607269;
+  max-width: 580px;
+  margin: 0;
+}
+.curriculum-update-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.course-view {
+  margin: 0 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.lesson-added {
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  padding: 3px 7px;
+  color: #2c614e;
+  background: #e9f1e8;
+  border-radius: 5px;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-weight: 600;
+}
+@media (max-width: 1200px) {
+  .curriculum-update {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+@media (max-width: 600px) {
+  .curriculum-update {
+    padding: 22px 20px;
+  }
+  .curriculum-update h2 {
+    font-size: 21px;
+  }
+  .curriculum-update-actions {
+    width: 100%;
+  }
+  .curriculum-update-actions .button {
+    flex: 1;
+    min-width: 135px;
+    font-size: 11px;
+  }
+  .course-view button {
+    font-size: 11px;
+    padding: 9px 11px;
+  }
+}

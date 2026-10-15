@@ -2,11 +2,13 @@
 
 ## 教學路徑
 
-從學習路徑選課，依序閱讀概念、公式條件、分步例題與自我檢核，再透過互動模型與理解筆記完成一次探究。物理、化學、生物、地科各16課，共192段教學、64個原創詳解、128題附解析練習。
+從學習路徑選課，依序閱讀概念、公式條件、分步例題與自我檢核，再透過互動模型與理解筆記完成一次探究。保留四科各16個核心課，並補寫49課（物理10、化學10、生物9、地科10、跨科探究10），共113課、403段教學、113個原創詳解、275題附解析練習。探究課按情境分屬四科，但另有獨立篩選。
 
-`curriculum.ts` 保存索引、關聯模型與課綱標籤；`details-physical.ts`、`details-chemistry-part.ts` 與 `details-life-earth.ts` 保存完整內容，`lesson-details.ts` 統一按 lessonId 查詢。課綱標籤用於追溯，沒有以課程數字冒稱外部審訂。
+`curriculum.ts` 保存索引、關聯模型與課綱標籤；`details-physical.ts`、`details-chemistry-part.ts` 與 `details-life-earth.ts` 保存核心內容，`extra-*.ts` 保存補寫詳解與課綱對應理由，`lesson-details.ts` 統一按 lessonId 查詢。課綱標籤用於追溯，沒有以課程數字冒稱外部審訂。
 
-`LessonReader` 提供分段閱讀、逐步揭示例題、即時批改、筆記與同科前後導覽。`practice-progress.ts` 為作答資料加版本與題目簽名，題目更新後不誤用舊答案。`StudyPath` 依最後一次作答列出待複習，改正後即時移出；掌握狀態由使用者自行決定。
+`official-scope.ts` 依附件保存163條四科內容與14項探究內部索引，`coverage.ts` 合併標籤及逐條對應理由；`CurriculumMap` 呈現頁碼、教學入口、搜尋與未連結篩選。對照表示可追溯教學入口，不是外部認證。
+
+`LessonReader` 提供相關深入課程連結、分段閱讀、逐步揭示例題、即時批改、筆記與同科前後導覽。`practice-progress.ts` 為作答資料加版本與題目簽名，題目更新後不誤用舊答案。`StudyPath` 依最後一次作答列出待複習，改正後即時移出；掌握狀態由使用者自行決定。
 
 ## 視覺與操作
 
@@ -22,7 +24,7 @@
 
 ## PWA 與本機 AI
 
-React、TypeScript、Vite、原生 SVG、Workbox 與 WebLLM。核心課程、原創練習、渲染與模型操作可在首次完整載入後離線使用；約0.8MB核心資源預快取。大型推論 SDK 與 Worker 排除預快取，僅在明確啟用模型後取得；權重由 WebLLM 管理。
+React、TypeScript、Vite、原生 SVG、Workbox 與 WebLLM。核心課程、原創練習、渲染與模型操作可在首次完整載入後離線使用；核心資源預快取。大型推論 SDK 與 Worker 排除預快取，僅在明確啟用模型後取得；權重由 WebLLM 管理。
 
 學習進度、收藏、練習與筆記留在 localStorage；AI 設定有 schema 驗證，提問與生成內容不持久保存。GPU 不可用時提供原文檢索，清楚標示未執行生成。裝置推論尚未實機驗證。
 

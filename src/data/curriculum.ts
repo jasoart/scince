@@ -1,3 +1,9 @@
+import { extraPhysicsLessons } from "./extra-physics";
+import { extraChemistryLessons } from "./extra-chemistry";
+import { extraBiologyLessons } from "./extra-biology";
+import { extraEarthLessons } from "./extra-earth";
+import { extraInquiryLessons } from "./extra-inquiry";
+
 /**
  * 原創學習導讀，依使用者提供的「111 學年度起適用學測自然考科考試說明」
  * 附錄二整理。課綱代碼標籤用於追溯範圍，不表示每條學習內容已完整教學。
@@ -60,7 +66,7 @@ export const subjects: {
   },
 ];
 
-export const lessons: Lesson[] = [
+export const coreLessons: Lesson[] = [
   {
     id: "physics-motion",
     subject: "physics",
@@ -1909,3 +1915,13 @@ export const lessons: Lesson[] = [
     tags: ["EMd-Vc-1", "EMd-Vc-2", "EMd-Vc-3", "EMd-Vc-4", "資料判讀"],
   },
 ];
+
+export const addedLessons: Lesson[] = [
+  ...extraPhysicsLessons,
+  ...extraChemistryLessons,
+  ...extraBiologyLessons,
+  ...extraEarthLessons,
+  ...extraInquiryLessons,
+];
+export const addedLessonIds = new Set(addedLessons.map((lesson) => lesson.id));
+export const lessons: Lesson[] = [...coreLessons, ...addedLessons];

@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { lessons } from "../src/data/curriculum";
 
 test("concept search, saved notes and completion persist after reload", async ({
   page,
@@ -7,7 +8,7 @@ test("concept search, saved notes and completion persist after reload", async ({
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
   await page.getByRole("button", { name: "觀念圖書館", exact: true }).click();
-  await expect(page.locator(".lesson-card")).toHaveCount(64);
+  await expect(page.locator(".lesson-card")).toHaveCount(lessons.length);
   await page.getByPlaceholder("搜尋觀念、公式或關鍵字…").fill("化學平衡");
   await expect(page.locator(".lesson-card").first()).toBeVisible();
   await page.locator(".lesson-open").first().click();
@@ -42,6 +43,7 @@ test("390px navigation and every page fit the viewport", async ({ page }) => {
     "互動實驗室",
     "公式工作台",
     "學習路徑",
+    "課綱對照",
     "我的學習筆記",
     "來源與研究",
     "AI 學習夥伴",
@@ -78,7 +80,7 @@ test("PWA precaches lessons and lab, reloads offline without downloading AI", as
   await page.reload();
   await expect(page.locator(".connection")).toContainText("離線模式");
   await page.getByRole("button", { name: "觀念圖書館", exact: true }).click();
-  await expect(page.locator(".lesson-card")).toHaveCount(64);
+  await expect(page.locator(".lesson-card")).toHaveCount(lessons.length);
   await page.getByRole("button", { name: /互動實驗室/ }).click();
   await expect(page.locator(".sim-svg")).toBeVisible();
   expect(modelRequests).toBe(0);

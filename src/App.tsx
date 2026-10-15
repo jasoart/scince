@@ -28,7 +28,12 @@ import {
   X,
 } from "lucide-react";
 import { useRegisterSW } from "virtual:pwa-register/react";
-import { lessons, subjects } from "./data/curriculum";
+import {
+  lessons,
+  subjects,
+  addedLessonIds,
+  addedLessons,
+} from "./data/curriculum";
 import type { Lesson, SubjectId } from "./data/curriculum";
 import { examGuide } from "./data/curriculum-guide";
 import { lessonDetails, practiceCount } from "./data/lesson-details";
@@ -37,6 +42,7 @@ import { asset } from "./lib/assets";
 import { researchSources } from "./data/research";
 
 const SimulationLab = lazy(() => import("./components/SimulationLab"));
+const CurriculumMap = lazy(() => import("./components/CurriculumMap"));
 const StudyPath = lazy(() => import("./components/StudyPath"));
 const LessonReader = lazy(() => import("./components/LessonReader"));
 const RenderingStudio = lazy(() => import("./components/RenderingStudio"));
@@ -47,6 +53,7 @@ type Page =
   | "lab"
   | "studio"
   | "path"
+  | "coverage"
   | "notebook"
   | "sources"
   | "ai";
@@ -56,6 +63,7 @@ const navItems: { id: Page; label: string; icon: typeof Compass }[] = [
   { id: "lab", label: "互動實驗室", icon: FlaskConical },
   { id: "studio", label: "公式工作台", icon: BookMarked },
   { id: "path", label: "學習路徑", icon: Target },
+  { id: "coverage", label: "課綱對照", icon: GraduationCap },
   { id: "notebook", label: "我的學習筆記", icon: Bookmark },
 ];
 const subjectIcons = {
@@ -257,6 +265,7 @@ function readRoute(): { page: Page; lesson: Lesson | null } {
     "lab",
     "studio",
     "path",
+    "coverage",
     "notebook",
     "sources",
     "ai",
@@ -290,6 +299,9 @@ export default function App() {
   const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
   const [quizIndex, setQuizIndex] = useState(0);
   const [formulasOnly, setFormulasOnly] = useState(false);
+  const [courseView, setCourseView] = useState<"all" | "added" | "inquiry">(
+    "all",
+  );
   const [installEvent, setInstallEvent] = useState<
     | (Event & {
         prompt: () => Promise<void>;
@@ -323,6 +335,7 @@ export default function App() {
   }, []);
   function go(next: Page) {
     setPage(next);
+    if (next === "library") setCourseView("all");
     setSelectedRaw(null);
     history.pushState(null, "", `#/${next}`);
     setMenu(false);
@@ -387,6 +400,10 @@ export default function App() {
   const filtered = lessons.filter(
     (l) =>
       (subject === "all" || l.subject === subject) &&
+      (courseView === "all" ||
+        (courseView === "added"
+          ? addedLessonIds.has(l.id)
+          : l.chapter === "探究與實作")) &&
       (!querySubject || l.subject === querySubject.id) &&
       `${subjectNames[l.subject]} ${l.title} ${l.subtitle} ${l.explanation} ${l.concepts.join(" ")} ${l.formulas.map((f) => `${f.expression} ${f.meaning}`).join(" ")} ${l.tags.join(" ")}`
         .toLowerCase()
@@ -642,6 +659,34 @@ export default function App() {
                   </span>
                 </div>
               </div>
+              <section className="curriculum-update" aria-label="本次課程補寫">
+                <div>
+                  <span className="eyebrow">MORE WAYS TO UNDERSTAND</span>
+                  <h2>把省略的地方，展開來學。</h2>
+                  <p>
+                    新增 {addedLessons.length}{" "}
+                    個專題與探究單元，從藥品與材料、遺傳證據到海洋氣候。每課都有分段教學、例題推理與原創檢核。
+                  </p>
+                </div>
+                <div className="curriculum-update-actions">
+                  <button
+                    className="button primary"
+                    onClick={() => {
+                      setSubject("all");
+                      go("library");
+                      setCourseView("added");
+                    }}
+                  >
+                    閱讀本次補寫 <ArrowRight size={16} />
+                  </button>
+                  <button
+                    className="button secondary"
+                    onClick={() => go("coverage")}
+                  >
+                    逐條查看課綱 <GraduationCap size={16} />
+                  </button>
+                </div>
+              </section>
               <section className="subject-section">
                 <SectionHeading
                   eyebrow="FOUR WAYS TO SEE THE WORLD"
@@ -837,6 +882,24 @@ export default function App() {
                   )}
                 </label>
               </div>
+              <div className="course-view tabs" aria-label="單元類型">
+                {(
+                  [
+                    { id: "all", label: `全部單元 ${lessons.length}` },
+                    { id: "added", label: `本次補寫 ${addedLessons.length}` },
+                    { id: "inquiry", label: "探究與實作" },
+                  ] as const
+                ).map((view) => (
+                  <button
+                    key={view.id}
+                    className={courseView === view.id ? "selected" : ""}
+                    aria-pressed={courseView === view.id}
+                    onClick={() => setCourseView(view.id)}
+                  >
+                    {view.label}
+                  </button>
+                ))}
+              </div>
               <div className="results-label">
                 <span>找到 {filtered.length} 個觀念單元</span>
                 <label>
@@ -875,6 +938,9 @@ export default function App() {
                     >
                       <span className="lesson-number">
                         {String(i + 1).padStart(2, "0")}
+                        {addedLessonIds.has(l.id) && (
+                          <span className="lesson-added">新增詳解</span>
+                        )}
                       </span>
                       <h3>{l.title}</h3>
                       <p>{l.subtitle}</p>
@@ -968,6 +1034,22 @@ export default function App() {
               <Suspense fallback={<Loading />}>
                 <StudyPath
                   completed={done}
+                  onOpen={(id) =>
+                    setSelected(lessons.find((l) => l.id === id) ?? null)
+                  }
+                />
+              </Suspense>
+            </>
+          )}
+          {page === "coverage" && (
+            <>
+              <PageHeading
+                eyebrow="FROM THE SYLLABUS TO UNDERSTANDING"
+                title="從課綱，找到學習入口。"
+                description="對照你提供的考試說明，查找四科學習內容與探究能力，再進入對應單元。可用代碼、觀念或單元名稱搜尋。"
+              />
+              <Suspense fallback={<Loading />}>
+                <CurriculumMap
                   onOpen={(id) =>
                     setSelected(lessons.find((l) => l.id === id) ?? null)
                   }

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 import ts from "typescript";
+import { build } from "esbuild";
 
 async function compileURL(relativePath, replacements = {}) {
   const source = await readFile(new URL(relativePath, import.meta.url), "utf8");
@@ -27,7 +28,14 @@ async function compileURL(relativePath, replacements = {}) {
   return `data:text/javascript;base64,${Buffer.from(output).toString("base64")}`;
 }
 
-const curriculumURL = await compileURL("../src/data/curriculum.ts");
+const catalog = await build({
+  entryPoints: ["src/data/curriculum.ts"],
+  bundle: true,
+  write: false,
+  platform: "node",
+  format: "esm",
+});
+const curriculumURL = `data:text/javascript;base64,${Buffer.from(catalog.outputFiles[0].text).toString("base64")}`;
 const { lessons } = await import(curriculumURL);
 const {
   DEFAULT_SETTINGS,

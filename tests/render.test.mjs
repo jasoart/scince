@@ -361,12 +361,7 @@ test("mixed prose limits rendering work and preserves a readable truncated tail"
 
 test("every shipped catalog and detailed-course formula renders without a silent syntax fallback", async () => {
   const { lessons } = await import(await catalogURL("curriculum"));
-  const { physicalDetails } = await import(
-    await catalogURL("details-physical")
-  );
-  const { lifeEarthDetails } = await import(
-    await catalogURL("details-life-earth")
-  );
+  const { completeLessons } = await import(await catalogURL("lesson-details"));
   const failures = [];
   for (const lesson of lessons)
     for (const formula of lesson.formulas) {
@@ -391,7 +386,7 @@ test("every shipped catalog and detailed-course formula renders without a silent
     else if (value && typeof value === "object")
       Object.values(value).forEach((item) => scanInline(item, lessonId));
   };
-  for (const lesson of [...physicalDetails, ...lifeEarthDetails]) {
+  for (const lesson of completeLessons) {
     for (const section of lesson.sections)
       if (
         section.formula &&

@@ -59,7 +59,15 @@ export function retrieveLessons(query: string, limit = 3): LessonMatch[] {
   ).filter(([name]) => query.includes(name));
   const explicitSubject =
     namedSubjects.length === 1 ? namedSubjects[0] : undefined;
-  const queryTerms = terms(query).filter(
+  // Remove whole question phrases before forming Chinese bigrams, so an edge
+  // such as「判斷平」cannot outrank the actual topic「平衡」.
+  const topicQuery = (
+    explicitSubject ? query.replaceAll(explicitSubject[0], " ") : query
+  ).replace(
+    /為什麼|告訴我|如何|什麼|怎麼|為何|有何|差在哪|在哪裡|可以|解釋|說明|判斷/gu,
+    " ",
+  );
+  const queryTerms = terms(topicQuery).filter(
     (term) =>
       !stopTerms.has(term) &&
       term !== explicitSubject?.[0] &&

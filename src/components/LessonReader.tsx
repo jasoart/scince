@@ -14,7 +14,12 @@ import {
   Sparkles,
   Target,
 } from "lucide-react";
-import { lessons, subjects, type Lesson } from "../data/curriculum";
+import {
+  lessons,
+  subjects,
+  addedLessonIds,
+  type Lesson,
+} from "../data/curriculum";
 import type { LessonDetail, PracticeQuestion } from "../data/lesson-types";
 import {
   loadPracticeProgress,
@@ -212,6 +217,23 @@ export default function LessonReader({
   const position = subjectLessons.findIndex((item) => item.id === lesson.id);
   const previous = subjectLessons[position - 1];
   const next = subjectLessons[position + 1];
+  const officialTags = lesson.tags.filter(
+    (tag) => tag.includes("-Vc-") || tag.startsWith("IQ-"),
+  );
+  const related = subjectLessons
+    .filter(
+      (item) =>
+        item.id !== lesson.id &&
+        (item.tags.some((tag) => officialTags.includes(tag)) ||
+          item.chapter === lesson.chapter),
+    )
+    .sort(
+      (a, b) =>
+        Number(addedLessonIds.has(b.id)) - Number(addedLessonIds.has(a.id)) ||
+        b.tags.filter((tag) => officialTags.includes(tag)).length -
+          a.tags.filter((tag) => officialTags.includes(tag)).length,
+    )
+    .slice(0, 6);
   const allStepsRevealed = revealed >= detail.workedExample.steps.length;
   const navigation = [
     { id: "concepts", label: "觀念講解" },
@@ -543,6 +565,29 @@ export default function LessonReader({
           </button>
         </section>
 
+        {related.length > 0 && (
+          <section className="lr-related" aria-label="相關與深入單元">
+            <span className="lr-section-kicker">KEEP CONNECTING</span>
+            <h3>相關與深入單元</h3>
+            <p>沿著共同課綱與主題，繼續補上觀念的細節。</p>
+            <div className="lr-related-grid">
+              {related.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => onSelectLesson(item.id)}
+                >
+                  <span>
+                    {addedLessonIds.has(item.id) && <small>新增詳解</small>}
+                    <strong>{item.title}</strong>
+                    <span>{item.subtitle}</span>
+                  </span>
+                  <ArrowRight size={16} />
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
         <section className="lr-section" data-lr-section="notes" tabIndex={-1}>
           <div className="lr-section-heading">
             <span className="lr-section-number">
