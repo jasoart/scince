@@ -1,0 +1,45 @@
+.sr-formula {
+  display: inline-flex;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+  padding: 0.15em 0.04em;
+  color: inherit;
+  scrollbar-width: thin;
+  overscroll-behavior-inline: contain;
+}
+.sr-formula math {
+  flex: 0 0 auto;
+  margin: 0;
+  font-family:
+    "STIX Two Math", "Cambria Math", "Latin Modern Math", math, serif;
+  font-size: 1.07em;
+  line-height: 1.6;
+}
+.sr-formula.sr-display {
+  display: flex;
+  width: 100%;
+  padding: 0.75em 0.3em;
+}
+.sr-display math {
+  margin: 0 auto;
+}
+.sr-fallback {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: inherit;
+}
+.sr-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 480px) {
+  .sr-formula math {
+    font-size: 1em;
+  }
+  .sr-display {
+    padding-inline: 0.1em;
+  }
+}

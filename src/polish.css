@@ -1,0 +1,1212 @@
+/* Release typography, contrast and shared subject palette. */
+:root {
+  --ink: #193e3b;
+  --muted: #61756c;
+  --line: #e1e8df;
+  --lime: #deedaa;
+  background: #f6f8f4;
+  color: var(--ink);
+  font-size: 14px;
+}
+.sidebar {
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.brand {
+  margin-bottom: 34px;
+}
+.brand small {
+  color: #6c8179;
+}
+.workspace-label {
+  color: #72867c;
+}
+.nav-item {
+  color: #657a72;
+  font-size: 13px;
+  min-height: 46px;
+}
+.nav-item.active {
+  background: #eaf2e5;
+  color: #315c42;
+}
+.nav-item:hover {
+  background: #f0f5ec;
+}
+.sidebar-footer {
+  font-size: 10px;
+  color: #6d8277;
+}
+.offline-card {
+  background: #f2f6eb;
+  border-color: #dce6d1;
+}
+.offline-card p {
+  font-size: 11px;
+  color: #6c7f60;
+}
+.offline-card button {
+  font-size: 11px;
+  min-height: 38px;
+}
+.sidebar-bottom {
+  padding-top: 25px;
+}
+.topbar-left {
+  font-size: 12px;
+}
+.breadcrumb {
+  color: #7e9188;
+}
+.topbar-left strong {
+  color: #4f6b60;
+}
+.connection {
+  font-size: 11px;
+  color: #587c4e;
+}
+.icon-button {
+  color: #748b7b;
+}
+.avatar {
+  color: #59764c;
+  background: #edf4e5;
+}
+main {
+  padding-top: 37px;
+}
+.page-heading {
+  margin-bottom: 29px;
+}
+.page-heading h1 {
+  font-size: 29px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+}
+.page-heading p {
+  font-size: 13px;
+  color: #6e8378;
+  line-height: 1.9;
+}
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 1.9px;
+  color: #728a7b;
+}
+.edition-label {
+  font-size: 10px;
+  color: #5d7853;
+  background: #fcfdf9;
+  border-color: #d8e3ce;
+}
+.hero {
+  height: 360px;
+  background: #123a36;
+}
+.hero-content {
+  padding: 35px 36px;
+}
+.hero:after {
+  background: linear-gradient(
+    90deg,
+    #103b36f7 0%,
+    #103b36c4 32%,
+    #103b3600 72%
+  );
+}
+.hero h2 {
+  font-size: 47px;
+  letter-spacing: 4px;
+  margin: 15px 0 16px;
+}
+.hero p {
+  font-size: 12px;
+  color: #c0d3c8;
+  line-height: 1.9;
+  letter-spacing: 0.5px;
+  margin-bottom: 23px;
+}
+.hero-kicker {
+  font-size: 9px;
+  color: #d3e5be;
+}
+.hero-action-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.button {
+  font-size: 12px;
+  min-height: 42px;
+  border-radius: 6px;
+}
+.button.lime {
+  background: #dfedac;
+  color: #294a31;
+  font-weight: 600;
+}
+.hero-secondary {
+  border: 1px solid #a4c5ad57;
+  color: #d7e7d8;
+  background: #123c3655;
+  font-size: 11px;
+}
+.hero-secondary:hover {
+  background: #ffffff14;
+}
+.hero-caption {
+  font-size: 7px;
+  color: #d7d9bf;
+  letter-spacing: 1.5px;
+}
+.stat-row {
+  margin: 23px 0 36px;
+  padding: 22px 0;
+  border-color: #e0e7dc;
+  box-shadow: 0 2px 6px #234b2c02;
+}
+.stat-row > div {
+  gap: 14px;
+}
+.stat-icon {
+  width: 41px;
+  height: 41px;
+}
+.stat-row strong {
+  font-size: 26px;
+  color: #244c42;
+}
+.stat-row strong small {
+  font-size: 10px;
+  color: #718975;
+}
+.stat-row label {
+  font-size: 11px;
+  color: #718575;
+  margin-top: 6px;
+}
+.section-heading {
+  margin-bottom: 19px;
+}
+.section-heading .eyebrow {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+.section-heading h2 {
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  margin-top: 7px;
+}
+.section-heading > button {
+  font-size: 11px;
+  color: #617c58;
+  gap: 7px;
+  min-height: 35px;
+}
+.subject-grid {
+  gap: 16px;
+}
+.subject-card {
+  padding: 22px;
+  border-radius: 10px;
+  --subject-color: #46758c;
+}
+.subject-card.subject-physics {
+  background: #edf4f6;
+  border-color: #d6e5eb;
+}
+.subject-card.subject-chemistry {
+  --subject-color: #a2754c;
+  background: #fbf2e9;
+  border-color: #edddce;
+}
+.subject-card.subject-biology {
+  --subject-color: #5f8257;
+  background: #eef5e9;
+  border-color: #dce8d1;
+}
+.subject-card.subject-earth {
+  --subject-color: #7b7195;
+  background: #f1eff7;
+  border-color: #e0dbea;
+}
+.subject-card-top {
+  margin-bottom: 21px;
+}
+.subject-card strong {
+  font-size: 21px;
+  letter-spacing: 1px;
+}
+.subject-card strong > span {
+  font-size: 12px;
+  letter-spacing: 0.1px;
+  color: var(--subject-color);
+  opacity: 1;
+}
+.subject-card p {
+  font-size: 12px;
+  color: #738471;
+  line-height: 1.9;
+  margin: 11px 0 19px;
+  min-height: 45px;
+}
+.subject-count {
+  font-size: 11px;
+  color: var(--subject-color);
+}
+.subject-card:hover {
+  border-color: var(--subject-color);
+  box-shadow: 0 7px 20px #27462408;
+}
+.dashboard-bottom {
+  grid-template-columns: minmax(0, 1fr) 275px;
+  gap: 23px;
+  margin-top: 36px;
+}
+.experiment-grid {
+  gap: 13px;
+}
+.experiment-image {
+  height: 145px;
+}
+.card-art {
+  height: 130px;
+}
+.experiment-tag {
+  font-size: 9px;
+  padding: 5px 7px;
+}
+.experiment-body {
+  padding: 16px 14px 13px;
+}
+.experiment-body h3 {
+  font-size: 12px;
+  line-height: 1.8;
+  margin-bottom: 8px;
+  min-height: 39px;
+}
+.experiment-body p {
+  font-size: 11px;
+  color: #728675;
+  min-height: 42px;
+  line-height: 1.9;
+  margin-bottom: 13px;
+}
+.experiment-body > span {
+  font-size: 9px;
+  color: #68845e;
+  padding-top: 12px;
+}
+.experiment-body i {
+  display: none;
+}
+.challenge {
+  padding: 21px;
+  min-height: 356px;
+  background: #fbfcf6;
+  border-color: #e0e7d6;
+}
+.challenge-top {
+  margin-bottom: 23px;
+  font-size: 10px;
+}
+.challenge-top > span:first-child {
+  font-size: 13px;
+  color: #536c40;
+}
+.challenge-top > span:last-child {
+  font-size: 9px;
+  color: #839274;
+}
+.tiny-eyebrow {
+  font-size: 7px;
+  color: #899a72;
+  letter-spacing: 1px;
+}
+.challenge h3 {
+  font-size: 14px;
+  line-height: 1.95;
+  letter-spacing: 0.2px;
+  margin: 13px 0 19px;
+}
+.quiz-options {
+  gap: 7px;
+}
+.quiz-options button {
+  font-size: 10px;
+  min-height: 41px;
+  color: #718463;
+}
+.quiz-options button strong {
+  font-size: 13px;
+  color: #536a42;
+}
+.quiz-foot {
+  font-size: 10px;
+  color: #7f9170;
+  line-height: 1.9;
+  margin-top: 17px;
+}
+.quiz-result strong {
+  font-size: 11px;
+}
+.quiz-result p {
+  font-size: 11px;
+  color: #6f835d;
+  line-height: 1.9;
+}
+.quiz-result button {
+  font-size: 11px;
+  min-height: 35px;
+}
+.exam-banner {
+  padding: 25px;
+  margin-top: 30px;
+  border-color: #dee7d8;
+}
+.exam-banner h3 {
+  font-size: 18px;
+  margin: 7px 0;
+}
+.exam-banner > div:nth-child(2) > span {
+  font-size: 10px;
+  color: #7b8e6c;
+}
+.exam-banner p {
+  font-size: 12px;
+  color: #71846a;
+  line-height: 1.9;
+}
+.page-footer {
+  font-size: 10px;
+  color: #748a78;
+  padding: 28px 0;
+}
+.page-footer > span > span {
+  font-size: 10px;
+}
+.page-footer > button {
+  font-size: 10px;
+  color: #71876b;
+  min-height: 35px;
+}
+.inner-heading h1 {
+  font-size: 31px;
+}
+.inner-heading p {
+  max-width: 850px;
+  font-size: 13px;
+}
+.tabs button {
+  font-size: 12px;
+  min-height: 40px;
+  color: #6d8365;
+}
+.search-field {
+  min-height: 43px;
+  border-color: #dce5d4;
+}
+.search-field input {
+  font-size: 12px;
+}
+.search-field input::placeholder {
+  color: #7f9274;
+}
+.results-label {
+  font-size: 11px;
+  color: #6e8561;
+  line-height: 1.9;
+}
+.results-label label {
+  font-size: 11px;
+}
+.lesson-card {
+  border-color: #dfe7d8;
+  box-shadow: 0 2px 7px #1e4f2902;
+}
+.lesson-meta {
+  font-size: 11px;
+  padding: 15px 18px 0;
+}
+.lesson-card.subject-physics {
+  --subject-color: #46758c;
+}
+.lesson-card.subject-chemistry {
+  --subject-color: #a2754c;
+}
+.lesson-card.subject-biology {
+  --subject-color: #5f8257;
+}
+.lesson-card.subject-earth {
+  --subject-color: #7b7195;
+}
+.lesson-number {
+  font-size: 31px;
+  color: #b8c8aa;
+  margin: 10px 0;
+}
+.lesson-card h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 9px 0;
+}
+.lesson-card p {
+  font-size: 12px;
+  color: #718668;
+  line-height: 1.95;
+  min-height: 45px;
+}
+.lesson-footer {
+  font-size: 10px;
+  color: #778e6c;
+  padding-top: 16px;
+}
+.formula-preview small {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #6e875e;
+}
+.formula-preview {
+  background: #f3f7ee;
+}
+.source-note {
+  font-size: 11px;
+  color: #748b63;
+  line-height: 2;
+}
+.source-note button {
+  font-size: 11px;
+}
+.notebook-toolbar {
+  font-size: 12px;
+  color: #708561;
+}
+.note-card > small {
+  font-size: 10px;
+  color: #7c906d;
+}
+.note-input-label {
+  font-size: 12px;
+  color: #6c845c;
+}
+.note-input-label textarea {
+  font-size: 13px;
+  line-height: 2;
+  color: #49653d;
+}
+.note-input-label textarea::placeholder {
+  color: #7f946d;
+}
+.completion-button {
+  font-size: 10px;
+  min-height: 31px;
+  color: #728862;
+}
+.empty-state p {
+  font-size: 13px;
+  max-width: 540px;
+  color: #70865f;
+}
+.guide-panel h2 {
+  font-size: 20px;
+}
+.guide-panel p {
+  font-size: 13px;
+  color: #718868;
+  line-height: 2;
+}
+.guide-panel a {
+  font-size: 12px;
+}
+.competency-grid p {
+  font-size: 12px;
+  color: #6b835a;
+}
+.research-list h3 {
+  font-size: 18px;
+}
+.research-list p {
+  font-size: 12px;
+  color: #6c845e;
+  line-height: 2;
+}
+.research-author {
+  font-size: 11px;
+  color: #718765;
+}
+.research-application {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #6b835d;
+}
+.verification {
+  font-size: 10px;
+  color: #7c8e72;
+  line-height: 1.9;
+}
+.notice {
+  font-size: 12px;
+  color: #8a7145;
+}
+.modal {
+  box-shadow: 0 22px 100px #072d233d;
+}
+.offline-ready {
+  font-size: 10px;
+  color: #688256;
+  line-height: 1.8;
+}
+.offline-symbol {
+  color: #64834f;
+}
+.topbar {
+  border-color: #e2e8df;
+}
+.sidebar-bottom .offline-card strong {
+  font-size: 14px;
+}
+.mobile-menu {
+  color: #507760;
+}
+.install-content > p {
+  font-size: 13px;
+  color: #6b845c;
+}
+.install-content > small {
+  font-size: 11px;
+  color: #7b8e6c;
+}
+.install-instructions p {
+  font-size: 12px;
+  color: #6e855f;
+}
+@media (min-width: 1500px) {
+  .hero {
+    height: 405px;
+  }
+  .hero-content {
+    padding: 43px 43px;
+  }
+  .hero h2 {
+    font-size: 51px;
+  }
+  .hero p {
+    font-size: 13px;
+  }
+  .subject-card p {
+    font-size: 13px;
+  }
+  .experiment-body h3 {
+    font-size: 14px;
+  }
+  .experiment-body p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1200px) {
+  .page-heading h1 {
+    font-size: 25px;
+  }
+  .hero {
+    height: 350px;
+  }
+  .hero h2 {
+    font-size: 43px;
+  }
+  .stat-row > div {
+    padding: 0 15px;
+    gap: 10px;
+  }
+  .stat-row strong {
+    font-size: 24px;
+  }
+  .stat-row label {
+    font-size: 10px;
+  }
+  .stat-icon {
+    width: 35px;
+    height: 35px;
+  }
+  .subject-card {
+    padding: 17px;
+  }
+  .subject-card strong {
+    font-size: 19px;
+    gap: 8px;
+  }
+  .subject-card strong > span {
+    font-size: 10px;
+  }
+  .subject-card p {
+    font-size: 11px;
+    min-height: 58px;
+  }
+  .dashboard-bottom {
+    grid-template-columns: minmax(0, 1fr) 250px;
+    gap: 18px;
+  }
+  .experiment-body h3 {
+    font-size: 12px;
+  }
+  .challenge {
+    padding: 19px;
+  }
+  .challenge h3 {
+    font-size: 13px;
+  }
+  .nav-item {
+    font-size: 12px;
+  }
+  .nav-count {
+    font-size: 10px;
+  }
+  .exam-banner h3 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 900px) {
+  .nav-item {
+    font-size: 11px;
+    gap: 8px;
+  }
+  .page-heading h1 {
+    font-size: 23px;
+  }
+  .page-heading p {
+    font-size: 12px;
+  }
+  .hero {
+    height: 340px;
+  }
+  .hero-content {
+    padding: 30px;
+  }
+  .hero h2 {
+    font-size: 42px;
+  }
+  .hero p {
+    font-size: 11px;
+  }
+  .hero-action-group {
+    gap: 8px;
+  }
+  .hero-action-group .button {
+    font-size: 10px;
+    padding: 11px 12px;
+  }
+  .stat-row strong {
+    font-size: 21px;
+  }
+  .stat-row label {
+    font-size: 9px;
+  }
+  .stat-row > div {
+    gap: 8px;
+    padding: 0 11px;
+  }
+  .stat-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .stat-row strong small {
+    font-size: 8px;
+  }
+  .subject-card {
+    padding: 15px;
+  }
+  .subject-card strong {
+    font-size: 18px;
+    display: block;
+  }
+  .subject-card strong > span {
+    display: block;
+    margin-top: 5px;
+  }
+  .subject-card p {
+    font-size: 10px;
+    min-height: 58px;
+  }
+  .subject-count {
+    font-size: 10px;
+  }
+  .section-heading h2 {
+    font-size: 19px;
+  }
+  .dashboard-bottom {
+    grid-template-columns: 1fr;
+  }
+  .challenge {
+    min-height: 0;
+    padding: 22px;
+  }
+  .challenge h3 {
+    font-size: 15px;
+  }
+  .challenge-top {
+    margin-bottom: 17px;
+  }
+  .quiz-options {
+    max-width: 420px;
+  }
+  .experiment-body h3 {
+    font-size: 12px;
+    min-height: 40px;
+  }
+  .experiment-body p {
+    font-size: 11px;
+    min-height: 42px;
+  }
+  .exam-banner {
+    padding: 21px;
+  }
+  .exam-banner p {
+    font-size: 11px;
+  }
+  .exam-banner .button {
+    font-size: 10px;
+    padding: 11px;
+  }
+  .topbar-left {
+    font-size: 11px;
+  }
+  .connection {
+    font-size: 10px;
+  }
+  .inner-heading h1 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 700px) {
+  main {
+    padding-top: 26px;
+  }
+  .sidebar {
+    width: 245px;
+  }
+  .nav-item {
+    font-size: 13px;
+    min-height: 45px;
+    gap: 12px;
+  }
+  .sidebar-bottom {
+    padding-top: 20px;
+  }
+  .topbar {
+    padding: 0 18px;
+  }
+  .topbar-left {
+    font-size: 12px;
+  }
+  .connection {
+    font-size: 10px;
+  }
+  .page-heading {
+    margin-bottom: 22px;
+  }
+  .page-heading h1 {
+    font-size: 24px;
+    line-height: 1.65;
+    letter-spacing: 0.4px;
+  }
+  .page-heading p {
+    font-size: 12px;
+    line-height: 1.9;
+    max-width: 100%;
+  }
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+  }
+  .hero {
+    height: 385px;
+  }
+  .hero-content {
+    padding: 31px 23px;
+  }
+  .hero-kicker {
+    font-size: 8px;
+    letter-spacing: 1.6px;
+  }
+  .hero h2 {
+    font-size: 42px;
+    letter-spacing: 3px;
+    line-height: 1.4;
+    margin: 17px 0 16px;
+  }
+  .hero p {
+    font-size: 12px;
+    line-height: 1.95;
+    margin-bottom: 22px;
+    color: #c1d6c9;
+  }
+  .hero-action-group {
+    gap: 9px;
+    max-width: 295px;
+  }
+  .hero-action-group .button {
+    font-size: 11px;
+    padding: 12px 13px;
+    min-height: 43px;
+  }
+  .hero-secondary {
+    background: #143e37d9;
+  }
+  .hero-caption {
+    font-size: 6px;
+    right: 17px;
+    bottom: 15px;
+    letter-spacing: 1px;
+  }
+  .hero-caption span {
+    margin-left: 9px;
+  }
+  .stat-row {
+    padding: 0;
+    margin: 19px 0 30px;
+  }
+  .stat-row > div {
+    padding: 18px 15px;
+    gap: 11px;
+  }
+  .stat-row strong {
+    font-size: 24px;
+  }
+  .stat-row label {
+    font-size: 10px;
+  }
+  .stat-row strong small {
+    font-size: 9px;
+  }
+  .stat-icon {
+    width: 34px;
+    height: 34px;
+  }
+  .section-heading h2 {
+    font-size: 19px;
+    letter-spacing: 0.3px;
+  }
+  .section-heading .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .section-heading > button {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .subject-grid {
+    gap: 12px;
+  }
+  .subject-card {
+    padding: 18px;
+  }
+  .subject-card strong {
+    display: block;
+    font-size: 21px;
+  }
+  .subject-card strong > span {
+    display: block;
+    font-size: 11px;
+    margin-top: 5px;
+  }
+  .subject-card p {
+    font-size: 11px;
+    line-height: 1.85;
+    min-height: 58px;
+    margin: 10px 0 17px;
+  }
+  .subject-count {
+    font-size: 10px;
+  }
+  .subject-card-top {
+    margin-bottom: 18px;
+  }
+  .dashboard-bottom {
+    margin-top: 30px;
+    gap: 23px;
+  }
+  .experiment-image {
+    height: 135px;
+  }
+  .experiment-body {
+    padding: 14px 12px;
+  }
+  .experiment-body h3 {
+    font-size: 12px;
+    line-height: 1.8;
+    min-height: 43px;
+  }
+  .experiment-body p {
+    font-size: 11px;
+    line-height: 1.8;
+    min-height: 54px;
+  }
+  .experiment-body > span {
+    font-size: 9px;
+  }
+  .experiment-tag {
+    font-size: 8px;
+    padding: 5px 6px;
+  }
+  .challenge {
+    padding: 21px;
+  }
+  .challenge-top > span:first-child {
+    font-size: 14px;
+  }
+  .challenge h3 {
+    font-size: 15px;
+    line-height: 1.95;
+  }
+  .quiz-options {
+    max-width: none;
+  }
+  .quiz-options button {
+    min-height: 44px;
+    font-size: 11px;
+  }
+  .quiz-options button strong {
+    font-size: 14px;
+  }
+  .quiz-foot {
+    font-size: 11px;
+    color: #738663;
+  }
+  .tiny-eyebrow {
+    font-size: 7px;
+  }
+  .quiz-result strong {
+    font-size: 12px;
+  }
+  .quiz-result p {
+    font-size: 12px;
+    line-height: 1.95;
+  }
+  .quiz-result button {
+    font-size: 12px;
+  }
+  .exam-banner {
+    padding: 21px;
+    gap: 13px;
+    margin-top: 24px;
+  }
+  .exam-banner h3 {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .exam-banner p {
+    font-size: 11px;
+  }
+  .exam-banner > div:nth-child(2) > span {
+    font-size: 10px;
+  }
+  .exam-banner .button {
+    font-size: 12px;
+    min-height: 43px;
+  }
+  .page-footer {
+    font-size: 10px;
+    padding: 22px 0;
+  }
+  .page-footer > button {
+    font-size: 9px;
+    gap: 4px;
+  }
+  .page-footer > span > span {
+    display: none;
+  }
+  .inner-heading h1 {
+    font-size: 28px;
+    line-height: 1.55;
+  }
+  .inner-heading p {
+    font-size: 12px;
+    line-height: 1.95;
+  }
+  .tabs button {
+    font-size: 12px;
+    padding: 10px 9px;
+  }
+  .search-field input {
+    font-size: 16px;
+  }
+  .search-field input::placeholder {
+    font-size: 12px;
+  }
+  .search-field {
+    min-height: 46px;
+  }
+  .results-label {
+    font-size: 11px;
+  }
+  .results-label label {
+    font-size: 10px;
+  }
+  .lesson-meta {
+    font-size: 11px;
+  }
+  .lesson-card h3 {
+    font-size: 20px;
+  }
+  .lesson-card p {
+    font-size: 13px;
+    line-height: 1.95;
+    min-height: 0;
+  }
+  .lesson-footer {
+    font-size: 11px;
+  }
+  .lesson-number {
+    font-size: 31px;
+  }
+  .lesson-open {
+    padding-bottom: 20px;
+  }
+  .source-note {
+    font-size: 11px;
+    line-height: 1.95;
+  }
+  .source-note button {
+    font-size: 11px;
+  }
+  .guide-panel h2 {
+    font-size: 19px;
+  }
+  .guide-panel p {
+    font-size: 12px;
+    line-height: 2;
+  }
+  .research-list h3 {
+    font-size: 18px;
+  }
+  .research-list p {
+    font-size: 12px;
+  }
+  .research-author {
+    font-size: 10px;
+  }
+  .verification {
+    font-size: 10px;
+  }
+  .research-application {
+    font-size: 11px;
+  }
+  .competency-grid p {
+    font-size: 12px;
+  }
+  .notice {
+    font-size: 11px;
+    line-height: 1.95;
+  }
+  .note-input-label textarea {
+    font-size: 16px;
+  }
+  .note-input-label textarea::placeholder {
+    font-size: 12px;
+  }
+  .empty-state p {
+    font-size: 12px;
+  }
+  .notebook-toolbar {
+    font-size: 12px;
+  }
+  .notebook-toolbar .button {
+    font-size: 11px;
+  }
+  .completion-button {
+    font-size: 11px;
+    min-height: 34px;
+  }
+  .offline-ready {
+    font-size: 9px;
+  }
+  .install-content h2 {
+    font-size: 25px;
+  }
+  .install-content > p {
+    font-size: 13px;
+  }
+  .install-instructions p {
+    font-size: 12px;
+  }
+  .install-content > small {
+    font-size: 11px;
+  }
+  .modal-backdrop {
+    padding: 9px;
+  }
+  .modal {
+    max-height: 95dvh;
+  }
+}
+@media (max-width: 370px) {
+  main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hero-content {
+    padding-left: 20px;
+    padding-right: 18px;
+  }
+  .hero-action-group .button {
+    font-size: 10px;
+    padding: 12px 10px;
+  }
+  .hero h2 {
+    font-size: 39px;
+  }
+  .stat-row > div {
+    padding: 16px 12px;
+    gap: 8px;
+  }
+  .stat-row strong {
+    font-size: 22px;
+  }
+  .stat-icon {
+    width: 31px;
+    height: 31px;
+  }
+  .subject-card {
+    padding: 15px;
+  }
+  .subject-card p {
+    min-height: 65px;
+  }
+  .section-heading h2 {
+    font-size: 18px;
+  }
+  .section-heading > button {
+    font-size: 9px;
+  }
+}
+
+.modal:focus {
+  outline: none;
+}
+.modal-close {
+  position: sticky;
+  top: 12px;
+  float: right;
+  right: 12px;
+  margin: 12px 12px -42px 0;
+  z-index: 12;
+}
+.lr-nav {
+  padding-right: 52px;
+}
+@media (max-width: 700px) {
+  .lr-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px 52px 10px 18px;
+  }
+  .lr-nav button {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .lr-nav::-webkit-scrollbar {
+    display: none;
+  }
+}
